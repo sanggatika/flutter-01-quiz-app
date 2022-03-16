@@ -4,13 +4,14 @@ import './kuis.dart';
 import './hasil.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _MyAppState();
   }
 }
@@ -62,17 +63,16 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _pertanyaanIndex = _pertanyaanIndex + 1;
     });
+    // ignore: avoid_print
     print(_pertanyaanIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter 01 Quiz App'),
+          title: const Text('Flutter 01 Quiz App'),
         ),
         body: _pertanyaanIndex < _pertanyaan.length
             ? Kuis(

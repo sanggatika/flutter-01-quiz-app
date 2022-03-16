@@ -7,10 +7,12 @@ class Kuis extends StatelessWidget {
   final int pertanyaanIndex;
   final Function jawabanPertanyaan;
 
-  Kuis(
-      {required this.pertanyaan,
+  const Kuis(
+      {Key? key,
+      required this.pertanyaan,
       required this.pertanyaanIndex,
-      required this.jawabanPertanyaan});
+      required this.jawabanPertanyaan})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,9 @@ class Kuis extends StatelessWidget {
         ),
         ...(pertanyaan[pertanyaanIndex]['jawabanText']
                 as List<Map<String, Object>>)
-            .map((jawaban_text) {
-          return Jawaban(() => jawabanPertanyaan(jawaban_text['score']),
-              jawaban_text['text'] as String);
+            .map((jawabanText) {
+          return Jawaban(() => jawabanPertanyaan(jawabanText['score']),
+              jawabanText['text'] as String);
         }).toList(),
       ],
     );

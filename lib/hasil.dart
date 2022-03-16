@@ -4,7 +4,7 @@ class Hasil extends StatelessWidget {
   final int hasilScore;
   final VoidCallback resetHandler;
 
-  Hasil(this.hasilScore, this.resetHandler);
+  const Hasil(this.hasilScore, this.resetHandler, {Key? key}) : super(key: key);
 
   String get hasilPhrase {
     String hasilText = "You Did It ...";
@@ -28,11 +28,11 @@ class Hasil extends StatelessWidget {
         children: <Widget>[
           Text(
             hasilPhrase,
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           TextButton(
-            child: Text(
+            child: const Text(
               'Restart Quiz!',
             ),
             style: TextButton.styleFrom(
